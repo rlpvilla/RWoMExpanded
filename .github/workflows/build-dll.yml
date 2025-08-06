@@ -18,14 +18,12 @@ jobs:
     - name: Setup MSBuild
       uses: microsoft/setup-msbuild@v2
 
-    - name: Build Solution
+    - name: Build .csproj
       run: |
-        cd RimWorldOfMagic
-        msbuild RimWorldOfMagic.sln /p:Configuration=Release
+        msbuild RimWorldOfMagic/RimWorldOfMagic/RimWorldOfMagic.csproj /p:Configuration=Release
 
-    - name: Upload DLLs
+    - name: Upload built DLL
       uses: actions/upload-artifact@v4
       with:
-        name: RimWorldOfMagic_DLLs
-        path: |
-          RimWorldOfMagic/**/bin/Release/*.dll
+        name: RimWorldOfMagic_DLL
+        path: RimWorldOfMagic/dev/Assemblies/TorannMagic.dll
