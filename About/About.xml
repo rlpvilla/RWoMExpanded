@@ -93,6 +93,11 @@
 			<steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=932008009</steamWorkshopUrl>
 			<downloadUrl>https://discord.gg/AaVFA7V</downloadUrl>
 		  </li>
+		  <li>
+			<packageId>DankPyon.Medieval.Overhaul</packageId>
+			<displayName>Medieval Overhaul</displayName>
+			<steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=2553700067</steamWorkshopUrl>
+		  </li>
 		</v1.4>
 		<v1.5>
 		  <li>
@@ -121,6 +126,7 @@
 		<li>Ludeon.RimWorld.Royalty</li>
 		<li>UnlimitedHugs.HugsLib</li>
 		<li>jecrell.jecstools</li>
+		<li>DankPyon.Medieval.Overhaul</li>
 	</loadAfter>
 	<description>Version 2.6.3.4 - Customized Edition
 

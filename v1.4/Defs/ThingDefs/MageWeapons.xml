@@ -1540,6 +1540,9 @@ Ability: Arcane Barrier</description>
 	  <Uranium>10</Uranium>
 	  <RawMagicyte>200</RawMagicyte>
     </costList>
+    <!-- <weaponTags>
+      <li>MageDefense</li>
+    </weaponTags> -->
 	<recipeMaker>
 	  <workSpeedStat>WorkSpeedGlobal</workSpeedStat>
       <workSkill>Crafting</workSkill>
