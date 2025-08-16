@@ -54,9 +54,10 @@
   </ThingDef>
   
   <ThingDef Name="BaseSeerProtectorRing" ParentName="BaseMageRing" Abstract="True">
-    <weaponTags>
+    <weaponTags Inherit="False">
       <li>MageAttack</li>
     </weaponTags>
+    <generateCommonality>20</generateCommonality>
 	<relicChance>0</relicChance>
   </ThingDef>
   
@@ -145,6 +146,10 @@
 	<thingCategories>
       <li>TM_MagicWeaponsFoci</li>
     </thingCategories>
+    <weaponTags Inherit="False">
+      <li>MageWands</li>
+      </weaponTags>
+      <generateCommonality>0.5</generateCommonality>
 	<tradeTags>
       <li>TM_BuyableMageWand</li>
     </tradeTags>
@@ -203,7 +208,7 @@ Arcane Resistance: +20%</description>
 			<graphicClass>Graphic_Single</graphicClass>
 			<drawSize>1.2</drawSize>
 		</graphicData>
-    <weaponTags>
+    <weaponTags Inherit="False">
       <li>SeerSpearman</li>
     </weaponTags>
 	<tradeTags>
@@ -298,7 +303,7 @@ Arcane Resistance: +20%</description>
 			<graphicClass>Graphic_Single</graphicClass>
 			<drawSize>1</drawSize>
 		</graphicData>
-    <weaponTags>
+    <weaponTags Inherit="False">
       <li>SeerSpearman</li>
     </weaponTags>
 	<tradeTags>
@@ -407,7 +412,7 @@ Ability Cooldown: -10%</description>
 	  <drawSize>1.5</drawSize>
     </graphicData>
     <soundInteract>Bow_Large</soundInteract>	
-	<weaponTags>
+	<weaponTags Inherit="False">
       <li>SeerBowman</li>
     </weaponTags>
 	<tradeTags>
@@ -507,7 +512,7 @@ Cleaving Strike</description>
 			<graphicClass>Graphic_Single</graphicClass>
 			<drawSize>1.4</drawSize>
 		</graphicData>
-    <weaponTags>
+    <weaponTags Inherit="False">
 		<li>SeerElite</li>
     </weaponTags>
 	<tradeTags>
@@ -609,8 +614,9 @@ Haste on hit (25%)</description>
 			<graphicClass>Graphic_Single</graphicClass>
 			<drawSize>.8</drawSize>
 		</graphicData>
-    <weaponTags>
+    <weaponTags Inherit="False">
 		<li>SeerElite</li>
+		<li>TM_ThrumboSaber</li>
     </weaponTags>
 	<tradeTags>
       <li>TM_BuyableMageWeapon</li>
@@ -715,8 +721,8 @@ Bestow Might on hit (15%)</description>
 			<shaderType>CutoutComplex</shaderType>
 			<drawSize>1</drawSize>
 		</graphicData>
-    <weaponTags>
-		<li>SeerElite</li>
+    <weaponTags Inherit="False">
+		<li>TM_GloryMaul</li>
     </weaponTags>
 	<tradeTags>
       <li>TM_BuyableMageWeapon</li>
@@ -815,7 +821,7 @@ Frailty on hit (50%)</description>
 			<shaderType>CutoutComplex</shaderType>
 			<drawSize>1.2</drawSize>
 		</graphicData>
-    <weaponTags>
+    <weaponTags Inherit="False">
 		<li>SeerElite</li>
     </weaponTags>
 	<tradeTags>
@@ -1158,9 +1164,11 @@ Nightshade Toxin on hit (20%)</description>
 			<shaderType>CutoutComplex</shaderType>
 			<drawSize>.8</drawSize>
 		</graphicData>
-    <weaponTags>
+    <weaponTags Inherit="False">
 		<li>SeerElite</li>
+		<li>TM_Assassin</li>
     </weaponTags>
+    <!-- <generateCommonality>0.05</generateCommonality> -->
 	<tradeTags>
       <li>TM_BuyableMageWeapon</li>
     </tradeTags>
@@ -1398,7 +1406,7 @@ Damage Boost: +15%</description>
         <hasStandardCommand>true</hasStandardCommand>
         <defaultProjectile>Projectile_IceWand</defaultProjectile>
         <warmupTime>.5</warmupTime>
-        <range>40</range>
+        <range>32</range>
         <soundCast>TM_Woosh</soundCast>
         <soundCastTail>GunTail_Light</soundCastTail>
         <muzzleFlashScale>5</muzzleFlashScale>
@@ -1487,7 +1495,7 @@ Damage Boost: +15%</description>
         <hasStandardCommand>true</hasStandardCommand>
         <defaultProjectile>Projectile_LightningWand</defaultProjectile>
         <warmupTime>2.8</warmupTime>
-        <range>32</range>
+        <range>44</range>
 		<soundCast>TM_Thunder_OnMap</soundCast>
         <soundCastTail>GunTail_Light</soundCastTail>
         <muzzleFlashScale>9</muzzleFlashScale>
@@ -1540,9 +1548,10 @@ Ability: Arcane Barrier</description>
 	  <Uranium>10</Uranium>
 	  <RawMagicyte>200</RawMagicyte>
     </costList>
-    <!-- <weaponTags>
+    <weaponTags Inherit="False">
       <li>MageDefense</li>
-    </weaponTags> -->
+    </weaponTags>
+    <!-- <generateCommonality>5</generateCommonality> -->
 	<recipeMaker>
 	  <workSpeedStat>WorkSpeedGlobal</workSpeedStat>
       <workSkill>Crafting</workSkill>
@@ -1981,7 +1990,7 @@ Ability: Hailstorm</description>
         <hasStandardCommand>true</hasStandardCommand>
         <defaultProjectile>Projectile_SeerRing_Fire</defaultProjectile>
         <warmupTime>1.5</warmupTime>
-        <range>40</range>
+        <range>24</range>
         <soundCast>DropPod_Leaving</soundCast>
         <soundCastTail>GunTail_Light</soundCastTail>
         <muzzleFlashScale>9</muzzleFlashScale>
@@ -2047,7 +2056,7 @@ Ability: Hailstorm</description>
         <hasStandardCommand>true</hasStandardCommand>
         <defaultProjectile>Projectile_SeerRing_Ice</defaultProjectile>
         <warmupTime>1.2</warmupTime>
-        <range>36</range>
+        <range>30</range>
         <soundCast>Shot_ChargeRifle</soundCast>
         <soundCastTail>GunTail_Light</soundCastTail>
         <muzzleFlashScale>9</muzzleFlashScale>
@@ -2119,7 +2128,7 @@ Ability: Hailstorm</description>
         <hasStandardCommand>true</hasStandardCommand>
         <defaultProjectile>Laser_SeerRing_Lightning</defaultProjectile>
         <warmupTime>2</warmupTime>
-        <range>32</range>
+        <range>40</range>
         <soundCastTail>GunTail_Light</soundCastTail>
         <muzzleFlashScale>9</muzzleFlashScale>
       </li>

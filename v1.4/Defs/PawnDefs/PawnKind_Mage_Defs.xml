@@ -283,6 +283,60 @@
   </li>
 </backstoryFilters>
 
+  <!-- 1) Force the exact items by defName -->
+  <apparelRequired>
+    <!-- Replace the two defNames here with the real ones from RoM -->
+    <li>ArcaneHood</li>
+    <li>DarkRobe</li>
+    <li>DankPyon_Apparel_Padded_Surcoat</li>
+    <li>DankPyon_Apparel_Trousers</li>	
+    <li>DankPyon_Handwear_GlovesPlate</li>
+    <li>DankPyon_Footwear_BootsPlate</li>
+  </apparelRequired>
+
+  <specificApparelRequirements>
+    <li>
+      <bodyPartGroup>FullHead</bodyPartGroup>
+      <apparelLayer>Overhead</apparelLayer>
+      <stuff>TM_Manaweave</stuff>
+    </li>
+    <li>
+      <bodyPartGroup>Torso</bodyPartGroup>
+      <apparelLayer>OnSkin</apparelLayer>
+      <requiredTag>DankPyon_Apparel_Padded_Surcoat</requiredTag>
+      <stuff>TM_Manaweave</stuff>
+    </li>
+    <li>
+      <bodyPartGroup>Torso</bodyPartGroup>
+      <apparelLayer>Shell</apparelLayer>
+      <requiredTag>Cape</requiredTag>
+      <stuff>TM_Manaweave</stuff>
+    </li>
+    <li>
+      <bodyPartGroup>Torso</bodyPartGroup>
+      <apparelLayer>Middle</apparelLayer>
+      <stuff>TM_Manaweave</stuff>
+    </li>
+    <li>
+      <bodyPartGroup>Legs</bodyPartGroup>
+      <apparelLayer>OnSkin</apparelLayer>
+      <requiredTag>DankPyon_Apparel_Trousers</requiredTag>
+      <stuff>TM_Manaweave</stuff>
+    </li>
+    <li>
+      <bodyPartGroup>Hands</bodyPartGroup>
+      <apparelLayer>Middle</apparelLayer>
+      <requiredTag>DankPyon_Handwear_GlovesPlate</requiredTag>
+      <stuff>TM_Arcalleum</stuff>
+    </li>
+    <li>
+      <bodyPartGroup>Feet</bodyPartGroup>
+      <apparelLayer>Middle</apparelLayer>
+      <requiredTag>DankPyon_Footwear_BootsPlate</requiredTag>
+      <stuff>TM_Arcalleum</stuff>
+    </li>
+  </specificApparelRequirements>
+
 <canBeSapper>true</canBeSapper>
 <!-- <isFighter>true</isFighter> -->
 
@@ -494,13 +548,14 @@
 <PawnKindDef ParentName="SeerFighterBase">
 <defName>Medieval_Seer_Bladedancer</defName>
 <label>Bladeseer</label>
-<combatPower>220</combatPower>
+<combatPower>250</combatPower>
 <apparelMoney>0</apparelMoney>
 
 <forcedTraits>
   <li>Bladedancer</li>
   <li>Brawler</li>
   <li>Nimble</li>
+  <li MayRequire="vanillaexpanded.vanillatraitsexpanded">VTE_Brave</li>
   <!-- <li><def>SpeedOffset</def><degree>2</degree></li> -->
 </forcedTraits>
 
@@ -563,10 +618,12 @@
   <stuff>TM_Arcalleum</stuff>
 </li>
 </specificApparelRequirements>
-<weaponMoney>800</weaponMoney>
+<weaponMoney>5000</weaponMoney>
 
-<weaponTags>
+<weaponTags Inherit="False">
 <li>DankPyon_Greatsword</li>
+<li>TM_ThrumboSaber</li>
+<!-- <li>DankPyon_NobleSword</li> -->
 </weaponTags>
 <skills>
   <li>
@@ -577,16 +634,105 @@
 </PawnKindDef>
 
 <PawnKindDef ParentName="SeerFighterBase">
+  <defName>Medieval_Seer_Shadow</defName>
+  <label>Shadowseer</label>
+  <combatPower>250</combatPower>
+  <apparelMoney>0</apparelMoney>
+  
+  <forcedTraits>
+    <li>TM_TheShadow</li>
+  </forcedTraits>
+
+<apparelRequired>
+  <li>DankPyon_Headgear_ArmetGilded</li>
+  <li>Dankpyon_Apparel_Gambeson</li>
+  <li>DankPyon_Apparel_Hauberk</li>
+  <li>DankPyon_Apparel_Trousers</li>			<!-- bodyPartGroups: Legs; 					| layers: OnSkin -->
+  <li>DankPyon_Apparel_FullPlateGilded</li>
+  <li>DankPyon_Footwear_BootsPlate</li>
+  <li>DankPyon_Handwear_GlovesPlate</li>
+  </apparelRequired>
+  
+  <specificApparelRequirements>
+    <!-- FullHead -->
+    <li>
+      <bodyPartGroup>FullHead</bodyPartGroup>
+      <apparelLayer>Overhead</apparelLayer>
+      <requiredTag>DankPyon_Headgear_ArmetGilded</requiredTag>
+      <stuff>TM_Arcalleum</stuff>
+    </li>
+    <!-- Torso -->
+    <li>
+      <bodyPartGroup>Torso</bodyPartGroup>
+      <apparelLayer>OnSkin</apparelLayer>
+      <requiredTag>Dankpyon_Apparel_Gambeson</requiredTag>
+      <stuff>TM_Manaweave</stuff>
+    </li>
+    <li>
+      <bodyPartGroup>Torso</bodyPartGroup>
+      <apparelLayer>Middle</apparelLayer>
+      <requiredTag>DankPyon_Apparel_Hauberk</requiredTag>
+      <stuff>TM_Arcalleum</stuff>
+    </li>
+    <li>
+      <bodyPartGroup>Torso</bodyPartGroup>
+      <apparelLayer>Shell</apparelLayer>
+      <requiredTag>DankPyon_Apparel_FullPlateGilded</requiredTag>
+      <stuff>TM_Arcalleum</stuff>
+    </li>
+    <!-- Legs -->
+    <li>
+      <bodyPartGroup>Legs</bodyPartGroup>
+      <apparelLayer>OnSkin</apparelLayer>
+      <requiredTag>DankPyon_Apparel_Trousers</requiredTag>
+      <stuff>TM_Manaweave</stuff>
+    </li>
+    <!-- Hands -->
+    <li>
+      <bodyPartGroup>Hands</bodyPartGroup>
+      <apparelLayer>Middle</apparelLayer>
+      <requiredTag>DankPyon_Handwear_GlovesPlate</requiredTag>
+      <stuff>TM_Arcalleum</stuff>
+    </li>
+    <!-- Feet -->
+    <li>
+      <bodyPartGroup>Feet</bodyPartGroup>
+      <apparelLayer>Middle</apparelLayer>
+      <requiredTag>DankPyon_Footwear_BootsPlate</requiredTag>
+      <stuff>TM_Arcalleum</stuff>
+    </li>
+  </specificApparelRequirements>
+  
+  <weaponMoney>4500</weaponMoney>
+  
+  <weaponTags Inherit="False">
+    <!-- <li>MageAttack</li> -->
+    <li>TM_Assassin</li>
+  </weaponTags>
+  <skills>
+    <li>
+      <skill>Melee</skill>
+      <range>12~18</range>
+    </li>
+    <li>
+      <skill>Shooting</skill>
+      <range>6~12</range>
+    </li>
+  </skills>
+</PawnKindDef> 
+
+<PawnKindDef ParentName="SeerFighterBase">
 <defName>Medieval_Seer_Enchanter</defName>
 <label>Seersmith</label>
-<combatPower>180</combatPower>
+<combatPower>350</combatPower>
 <apparelMoney>0</apparelMoney>
-<itemQuality>Legendary</itemQuality>
+<itemQuality>Masterwork</itemQuality>
 
 <forcedTraits>
   <li>Enchanter</li>
   <li>Brawler</li>
   <li>Tough</li>
+  <li MayRequire="vanillaexpanded.vanillatraitsexpanded">VTE_Brave</li>
 </forcedTraits>
 
 <apparelRequired>
@@ -657,18 +803,18 @@
   <stuff>TM_Arcalleum</stuff>
 </li>
 </specificApparelRequirements>
-<weaponMoney>0</weaponMoney>
+<weaponMoney>1000~1200</weaponMoney>
 
 
-<weaponTags>
+<weaponTags Inherit="False">
 <li>DankPyon_Warhammer</li>
-<li>DankPyon_MilitaryPick</li>
-<li>DankPyon_NobleSword</li>
+<!-- <li>DankPyon_MilitaryPick</li> -->
+<li>TM_GloryMaul</li>
 </weaponTags>
 <skills>
 <li>
   <skill>Melee</skill>
-  <range>12~18</range>
+  <range>8~18</range>
 </li>
 </skills>
 </PawnKindDef>  
@@ -684,57 +830,198 @@
 <forcedTraits>
   <li>Arcanist</li>
 </forcedTraits>
-<!-- 1) Force the exact items by defName -->
-<apparelRequired>
-  <!-- Replace the two defNames here with the real ones from RoM -->
-  <li>ArcaneHood</li>
-  <li>DarkRobe</li>
-  <li>DankPyon_Handwear_GlovesPlate</li>
-  <li>DankPyon_Footwear_BootsPlate</li>
-</apparelRequired>
 
-<specificApparelRequirements>
-  <!-- <li>
-    <bodyPartGroup>FullHead</bodyPartGroup>
-    <apparelLayer>Overhead</apparelLayer>
-    <stuff>TM_Manaweave</stuff>
-  </li>
+<weaponMoney>5000</weaponMoney>
 
-  <li>
-    <bodyPartGroup>Torso</bodyPartGroup>
-    <apparelLayer>Middle</apparelLayer>
-    <stuff>TM_Manaweave</stuff>
-  </li> -->
-  <li>
-    <bodyPartGroup>Hands</bodyPartGroup>
-    <apparelLayer>Middle</apparelLayer>
-    <requiredTag>DankPyon_Handwear_GlovesPlate</requiredTag>
-    <stuff>TM_Arcalleum</stuff>
-  </li>
-  <li>
-    <bodyPartGroup>Feet</bodyPartGroup>
-    <apparelLayer>Middle</apparelLayer>
-    <requiredTag>DankPyon_Footwear_BootsPlate</requiredTag>
-    <stuff>TM_Arcalleum</stuff>
-  </li>
-</specificApparelRequirements>
-
-<weaponMoney>0</weaponMoney>
-
-<weaponTags>
-  <li>MageAttack</li>
+<weaponTags Inherit="False">
+  <!-- <li>MageAttack</li> -->
+  <li>MageWands</li>
+  <li>MageDefense</li>
 </weaponTags>
-<skills>
+<skills> 
   <li>
     <skill>Melee</skill>
     <range>3~12</range>
   </li>
   <li>
     <skill>Shooting</skill>
-    <range>3~16</range>
+    <range>6~16</range>
   </li>
 </skills>
 </PawnKindDef>  
+
+<PawnKindDef ParentName="SeerMageBase">
+  <defName>Medieval_Seer_Summoner</defName>
+  <label>Seer</label>
+  <combatPower>300</combatPower>
+  <apparelMoney>0</apparelMoney>
+  
+  <forcedTraits>
+    <li>Summoner</li>
+  </forcedTraits>
+  
+  <weaponMoney>5000</weaponMoney>
+  
+  <weaponTags Inherit="False">
+    <li>MageWands</li>
+    <li>MageDefense</li>
+  </weaponTags>
+  <skills>
+    <li>
+      <skill>Melee</skill>
+      <range>3~12</range>
+    </li>
+    <li>
+      <skill>Shooting</skill>
+      <range>3~16</range>
+    </li>
+  </skills>
+  </PawnKindDef>  
+
+<PawnKindDef ParentName="SeerMageBase">
+  <defName>Medieval_Seer_IceMage</defName>
+  <label>Seer</label>
+  <combatPower>400</combatPower>
+  <apparelMoney>0</apparelMoney>
+  
+  <forcedTraits>
+    <li>HeartOfFrost</li>
+  </forcedTraits>
+  
+  <weaponMoney>5000</weaponMoney>
+  
+  <weaponTags Inherit="False">
+    <li>MageAttack</li>
+    <li>MageWands</li>
+    <li>MageDefense</li>
+  </weaponTags>
+  <skills>
+    <li>
+      <skill>Melee</skill>
+      <range>3~12</range>
+    </li>
+    <li>
+      <skill>Shooting</skill>
+      <range>6~16</range>
+    </li>
+  </skills>
+  </PawnKindDef> 
+
+  <PawnKindDef ParentName="SeerMageBase">
+    <defName>Medieval_Seer_FireMage</defName>
+    <label>Seer</label>
+    <combatPower>400</combatPower>
+    <apparelMoney>0</apparelMoney>
+    
+    <forcedTraits>
+      <li>InnerFire</li>
+    </forcedTraits>
+    
+    <weaponMoney>5000</weaponMoney>
+    
+    <weaponTags Inherit="False">
+      <li>MageAttack</li>
+      <li>MageWands</li>
+      <li>MageDefense</li>
+    </weaponTags>
+    <skills>
+      <li>
+        <skill>Melee</skill>
+        <range>3~12</range>
+      </li>
+      <li>
+        <skill>Shooting</skill>
+        <range>6~16</range>
+      </li>
+    </skills>
+    </PawnKindDef>  
+
+  <PawnKindDef ParentName="SeerMageBase">
+    <defName>Medieval_Seer_LightningMage</defName>
+    <label>Seer</label>
+    <combatPower>400</combatPower>
+    <apparelMoney>0</apparelMoney>
+    
+    <forcedTraits>
+      <li>StormBorn</li>
+    </forcedTraits>
+    
+    <weaponMoney>5000</weaponMoney>
+    
+    <weaponTags Inherit="False">
+      <li>MageAttack</li>
+      <li>MageWands</li>
+      <li>MageDefense</li>
+    </weaponTags>
+    <skills>
+      <li>
+        <skill>Melee</skill>
+        <range>3~12</range>
+      </li>
+      <li>
+        <skill>Shooting</skill>
+        <range>6~16</range>
+      </li>
+    </skills>
+    </PawnKindDef> 
+
+  <PawnKindDef ParentName="SeerMageBase">
+    <defName>Medieval_Seer_BrightMage</defName>
+    <label>Seer</label>
+    <combatPower>400</combatPower>
+    <apparelMoney>0</apparelMoney>
+    
+    <forcedTraits>
+      <li>TM_Brightmage</li>
+    </forcedTraits>
+    
+    <weaponMoney>5000</weaponMoney>
+    
+    <weaponTags Inherit="False">
+      <li>MageAttack</li>
+      <li>MageWands</li>
+      <li>MageDefense</li>
+    </weaponTags>
+    <skills>
+      <li>
+        <skill>Melee</skill>
+        <range>3~12</range>
+      </li>
+      <li>
+        <skill>Shooting</skill>
+        <range>6~16</range>
+      </li>
+    </skills>
+  </PawnKindDef> 
+
+  <PawnKindDef ParentName="SeerMageBase">
+    <defName>Medieval_Seer_Golemancer</defName>
+    <label>Seer</label>
+    <combatPower>300</combatPower>
+    <apparelMoney>0</apparelMoney>
+    
+    <forcedTraits>
+      <li>TM_Golemancer</li>
+    </forcedTraits>
+    
+    <weaponMoney>5000</weaponMoney>
+    
+    <weaponTags Inherit="False">
+      <li>MageAttack</li>
+      <li>MageWands</li>
+      <li>MageDefense</li>
+    </weaponTags>
+    <skills>
+      <li>
+        <skill>Melee</skill>
+        <range>3~12</range>
+      </li>
+      <li>
+        <skill>Shooting</skill>
+        <range>6~16</range>
+      </li>
+    </skills>
+  </PawnKindDef> 
 
   <!-- <PawnKindDef Name="SeerBase" Abstract="True">
     <race>Human</race>

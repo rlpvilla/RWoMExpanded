@@ -721,6 +721,7 @@ Level 0: 2
 Level 1: 3
 Level 2: 4
 Level 3: 5</TM_RaiseUndead_pwr_desc>
+<TM_RaiseUndead_eff_desc>Reduces mana cost of Raise Undead by 8% per skill level.</TM_RaiseUndead_eff_desc>
 <TM_RaiseUndead_ver_desc>Undead movement and action speed increases by 5% per skill level.</TM_RaiseUndead_ver_desc>
 <TM_DeathMark_ver_desc>Death Mark can cause terror and berserk afflictions. Each skill point increases the chance to apply an additional affliction by 10%.</TM_DeathMark_ver_desc>
 <TM_DeathMark_eff_desc>Reduces mana cost of Death Mark by 8% per skill level.</TM_DeathMark_eff_desc>
@@ -740,6 +741,7 @@ Level 3: radius 9, effect/1.1s, duration 33s</TM_FogOfTorment_ver_desc>
 <TM_ConsumeCorpse_ver_desc>Consume corpse also heals the physical wounds of the caster.  
 The amount of health varies based on type (human or animal) and freshness of the corpse or undead being consumed.
 Increases damage done to enemy undead by 15% per skill level.</TM_ConsumeCorpse_ver_desc>
+<TM_ConsumeCorpse_pwr_desc>Increases mana restored by Consume Corpse by 7% per skill level.</TM_ConsumeCorpse_pwr_desc>
 <TM_CorpseExplosion_pwr_desc>Increases the damage of Corpse Explosion by 5 per skill level. Also increases the explosion radius by 10%.
 Level 0: 18-30
 Level 1: 23-35
@@ -765,6 +767,7 @@ Level 3: 33-50; Spreading Darkness: 21-33</TM_DeathBolt_pwr_desc>
 <TM_FogOfTorment_pwr>Deadly Torment</TM_FogOfTorment_pwr>
 <TM_FogOfTorment_ver>Lingering Fog</TM_FogOfTorment_ver>
 <TM_ConsumeCorpse_eff>Greedy Consumption</TM_ConsumeCorpse_eff>
+<TM_ConsumeCorpse_pwr>Enhanced Consumption</TM_ConsumeCorpse_pwr>
 <TM_ConsumeCorpse_ver>Healing Consumption</TM_ConsumeCorpse_ver>
 <TM_CorpseExplosion_pwr>Violent Explosion</TM_CorpseExplosion_pwr>
 <TM_CorpseExplosion_eff>Corpse Mastery</TM_CorpseExplosion_eff>

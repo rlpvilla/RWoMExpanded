@@ -22,7 +22,7 @@
     </colorSpectrum>
 	<factionNameMaker>NamerFactionOutlander</factionNameMaker>
 	<settlementNameMaker>NamerSettlementOutlander</settlementNameMaker>
-	<techLevel>Neolithic</techLevel>
+	<techLevel>Medieval</techLevel>
 	<backstoryCategories>
 		<li>Civil</li>
 		<li>Outlander</li>
@@ -68,37 +68,129 @@
     <pawnGroupMakers>
       <li>
         <kindDef>Combat</kindDef>
+        <!-- Summoner -->
+        <disallowedStrategies>
+          <li>Siege</li>                <!-- RaidStrategyDef defName -->
+        </disallowedStrategies>
+        <commonality>100</commonality>
         <options>
-          <!-- <Medieval_Seer_Mercenary>10</Medieval_Seer_Mercenary>
-          <Medieval_Seer_Ranged_Mercenary>6</Medieval_Seer_Ranged_Mercenary>
+          <Medieval_Seer_Mercenary>12</Medieval_Seer_Mercenary>
+          <Medieval_Seer_Ranged_Mercenary>12</Medieval_Seer_Ranged_Mercenary>
+          <Medieval_Seer_Bladedancer>2</Medieval_Seer_Bladedancer>
+          <Medieval_Seer_Arcanist>0.5</Medieval_Seer_Arcanist>
+          <Medieval_Seer_Summoner>3</Medieval_Seer_Summoner>
+		</options>
+      </li>
+      <li>
+        <kindDef>Combat</kindDef>
+        <!-- Arcane Force -->
+        <disallowedStrategies>
+          <li>Siege</li>                <!-- RaidStrategyDef defName -->
+        </disallowedStrategies>
+        <commonality>100</commonality>
+        <options>
+          <Medieval_Seer_Mercenary>18</Medieval_Seer_Mercenary>
+          <Medieval_Seer_Ranged_Mercenary>12</Medieval_Seer_Ranged_Mercenary>
           <Medieval_Seer_Bladedancer>3</Medieval_Seer_Bladedancer>
-          <Medieval_Seer_Enchanter>2</Medieval_Seer_Enchanter> -->
-			<!-- <Mercenary_Slasher>7</Mercenary_Slasher>
-			<SeerSpearman>12</SeerSpearman>
-			<SeerBowman>10</SeerBowman>
-			<SeerDefender>5</SeerDefender>
-			<SeerElite>2</SeerElite> -->
+          <Medieval_Seer_Enchanter>0.25</Medieval_Seer_Enchanter>
+          <Medieval_Seer_Arcanist>2</Medieval_Seer_Arcanist>
+          <Medieval_Seer_Summoner>0.25</Medieval_Seer_Summoner>
+          <!-- <Medieval_Seer_BrightMage>0.25</Medieval_Seer_BrightMage> -->
+		</options>
+      </li>
+      <li>
+        <kindDef>Combat</kindDef>
+        <!-- Elemental - Bright -->
+        <disallowedStrategies>
+          <li>Siege</li>                <!-- RaidStrategyDef defName -->
+        </disallowedStrategies>
+        <commonality>25</commonality>
+        <options>
+          <Medieval_Seer_Mercenary>20</Medieval_Seer_Mercenary>
+          <Medieval_Seer_Ranged_Mercenary>8</Medieval_Seer_Ranged_Mercenary>
+          <Medieval_Seer_Bladedancer>1.5</Medieval_Seer_Bladedancer>
+          <Medieval_Seer_BrightMage>2</Medieval_Seer_BrightMage>
+		</options>
+      </li>
+      <li>
+        <kindDef>Combat</kindDef>
+        <!-- Elemental - Fire -->
+        <disallowedStrategies>
+          <li>Siege</li>                <!-- RaidStrategyDef defName -->
+        </disallowedStrategies>
+        <commonality>25</commonality>
+        <options>
+          <Medieval_Seer_Mercenary>20</Medieval_Seer_Mercenary>
+          <Medieval_Seer_Ranged_Mercenary>8</Medieval_Seer_Ranged_Mercenary>
+          <Medieval_Seer_Bladedancer>1.5</Medieval_Seer_Bladedancer>
+          <Medieval_Seer_FireMage>2</Medieval_Seer_FireMage>
+		</options>
+      </li>
+      <li>
+        <kindDef>Combat</kindDef>
+        <!-- Elemental - Ice -->
+        <disallowedStrategies>
+          <li>Siege</li>                <!-- RaidStrategyDef defName -->
+        </disallowedStrategies>
+        <commonality>25</commonality>
+        <options>
+          <Medieval_Seer_Mercenary>20</Medieval_Seer_Mercenary>
+          <Medieval_Seer_Ranged_Mercenary>8</Medieval_Seer_Ranged_Mercenary>
+          <Medieval_Seer_Bladedancer>1.5</Medieval_Seer_Bladedancer>
+          <Medieval_Seer_IceMage>2</Medieval_Seer_IceMage>
+		</options>
+      </li>
+      <li>
+        <kindDef>Combat</kindDef>
+        <!-- Elemental - Lightning -->
+        <disallowedStrategies>
+          <li>Siege</li>                <!-- RaidStrategyDef defName -->
+        </disallowedStrategies>
+        <commonality>25</commonality>
+        <options>
+          <Medieval_Seer_Mercenary>20</Medieval_Seer_Mercenary>
+          <Medieval_Seer_Ranged_Mercenary>8</Medieval_Seer_Ranged_Mercenary>
+          <Medieval_Seer_Bladedancer>1.5</Medieval_Seer_Bladedancer>
+          <Medieval_Seer_LightningMage>2</Medieval_Seer_LightningMage>
+		</options>
+      </li>
+      <li>
+        <!-- Breach -->
+        <kindDef>Combat</kindDef>
+        <commonality>30</commonality>
+        <options>
+          <Medieval_Seer_Mercenary>12</Medieval_Seer_Mercenary>
+          <Medieval_Seer_Ranged_Mercenary>12</Medieval_Seer_Ranged_Mercenary>
+          <Medieval_Seer_Bladedancer>1</Medieval_Seer_Bladedancer>
+          <Medieval_Seer_Summoner>1</Medieval_Seer_Summoner>
+		</options>
+      </li>
+      <li>
+        <!-- Breach - Assassination -->
+        <kindDef>Combat</kindDef>
+        <commonality>10</commonality>
+        <options>
+          <!-- <Medieval_Seer_Mercenary>6</Medieval_Seer_Mercenary>
+          <Medieval_Seer_Ranged_Mercenary>6</Medieval_Seer_Ranged_Mercenary> -->
+          <Medieval_Seer_Bladedancer>1</Medieval_Seer_Bladedancer>
+          <Medieval_Seer_Shadow>1</Medieval_Seer_Shadow>
 		</options>
       </li>
 	  <li>
         <kindDef>Peaceful</kindDef>
         <options>
-          <!-- <Medieval_Seer_Mercenary>8</Medieval_Seer_Mercenary>
-          <Medieval_Seer_Ranged_Mercenary>6</Medieval_Seer_Ranged_Mercenary>
-          <Medieval_Seer_Bladedancer>2</Medieval_Seer_Bladedancer>
-          <Medieval_Seer_Enchanter>2</Medieval_Seer_Enchanter> -->
-			<!-- <SeerSpearman>10</SeerSpearman>
-			<Mercenary_Slasher>1</Mercenary_Slasher>
-			<SeerBowman>6</SeerBowman>
-			<SeerDefender>5</SeerDefender>
-			<SeerElite>2</SeerElite> -->
+          <Medieval_Seer_Mercenary>16</Medieval_Seer_Mercenary>
+          <Medieval_Seer_Ranged_Mercenary>12</Medieval_Seer_Ranged_Mercenary>
+          <Medieval_Seer_Bladedancer>1</Medieval_Seer_Bladedancer>
+          <Medieval_Seer_Enchanter>2</Medieval_Seer_Enchanter>
+          <Medieval_Seer_Arcanist>0.5</Medieval_Seer_Arcanist>
         </options>
       </li>
       <li>
         <kindDef>Trader</kindDef>
         <traders>
-          <!-- <Medieval_Seer_Common_Trader>2</Medieval_Seer_Common_Trader>
-          <Medieval_Seer_Mage_Trader>1</Medieval_Seer_Mage_Trader> -->
+          <Medieval_Seer_Common_Trader>2</Medieval_Seer_Common_Trader>
+          <Medieval_Seer_Mage_Trader>1</Medieval_Seer_Mage_Trader>
         </traders>
         <carriers>
           <Muffalo>1</Muffalo>
@@ -107,30 +199,23 @@
           <Elephant>6</Elephant>
         </carriers>
         <guards>
-          <!-- <Medieval_Seer_Mercenary>8</Medieval_Seer_Mercenary>
-          <Medieval_Seer_Ranged_Mercenary>6</Medieval_Seer_Ranged_Mercenary>
-          <Medieval_Seer_Bladedancer>1</Medieval_Seer_Bladedancer>
-          <Medieval_Seer_Enchanter>0.5</Medieval_Seer_Enchanter> -->
-			<!-- <SeerBowman>8</SeerBowman>
-			<Mercenary_Slasher>4</Mercenary_Slasher>
-			<SeerSpearman>10</SeerSpearman>
-			<SeerDefender>5</SeerDefender> -->
+          <Medieval_Seer_Mercenary>16</Medieval_Seer_Mercenary>
+          <Medieval_Seer_Ranged_Mercenary>12</Medieval_Seer_Ranged_Mercenary>
+          <Medieval_Seer_Bladedancer>1.5</Medieval_Seer_Bladedancer>
+          <Medieval_Seer_Enchanter>0.5</Medieval_Seer_Enchanter>
+          <Medieval_Seer_Arcanist>0.25</Medieval_Seer_Arcanist>
 		</guards>
       </li>
       <li>
         <kindDef>Settlement</kindDef>
         <options>
-          <!-- <Medieval_Seer_Mercenary>6</Medieval_Seer_Mercenary>
-          <Medieval_Seer_Ranged_Mercenary>6</Medieval_Seer_Ranged_Mercenary>
+          <Medieval_Seer_Mercenary>10</Medieval_Seer_Mercenary>
+          <Medieval_Seer_Ranged_Mercenary>10</Medieval_Seer_Ranged_Mercenary>
           <Medieval_Seer_Bladedancer>0.5</Medieval_Seer_Bladedancer>
-          <Medieval_Seer_Enchanter>2.5</Medieval_Seer_Enchanter> -->
-			<!-- <SeerBowman>10</SeerBowman>
-			<Mercenary_Slasher>12</Mercenary_Slasher>
-			<SeerElite>4</SeerElite>
-			<SeerSpearman>16</SeerSpearman>
-			<Mercenary_Elite>12</Mercenary_Elite>
-			<AncientSoldier>5</AncientSoldier>
-			<SeerDefender>10</SeerDefender> -->
+          <Medieval_Seer_Enchanter>2.5</Medieval_Seer_Enchanter>
+          <Medieval_Seer_Arcanist>1</Medieval_Seer_Arcanist>
+          <Medieval_Seer_Summoner>1</Medieval_Seer_Summoner>
+          <Medieval_Seer_Golemancer>1</Medieval_Seer_Golemancer>
 		</options>
       </li>
     </pawnGroupMakers>

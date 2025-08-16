@@ -1640,6 +1640,7 @@ namespace TorannMagic
                 {
                     this.magicPowerSkill_ConsumeCorpse = new List<MagicPowerSkill>
                     {
+                        new MagicPowerSkill("TM_ConsumeCorpse_pwr", "TM_ConsumeCorpse_pwr_desc"),
                         new MagicPowerSkill("TM_ConsumeCorpse_eff", "TM_ConsumeCorpse_eff_desc"),
                         new MagicPowerSkill("TM_ConsumeCorpse_ver", "TM_ConsumeCorpse_ver_desc")
                     };
