@@ -1,6 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props"
+          Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+
+  <!-- ✅ UPDATED PROPERTIES (Mac paths + turn off implicit compile items) -->
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -9,20 +12,43 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TorannMagic</RootNamespace>
     <AssemblyName>TorannMagic</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
-    <TargetFrameworkProfile />
+
+    <!-- Make SDK-style "implicit includes" a no-op if someone runs dotnet build -->
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+
+    <!-- Mac install roots -->
+    <RimRoot>/Users/richie/Library/Application Support/Steam/steamapps/common/RimWorld/RimWorldMac.app</RimRoot>
+    <Managed>$(RimRoot)/Contents/Resources/Data/Managed</Managed>
+    <WorkshopRoot>/Users/richie/Library/Application Support/Steam/steamapps/workshop/content/294100</WorkshopRoot>
   </PropertyGroup>
+  <PropertyGroup>
+    <!-- classic .NET target -->
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkProfile></TargetFrameworkProfile>
+  
+    <!-- appease NuGet's targets -->
+    <TargetFrameworks>net48</TargetFrameworks>
+  
+    <!-- keep NuGet off anyway -->
+    <RestoreProjectStyle>PackagesConfig</RestoreProjectStyle>
+    <RestorePackages>false</RestorePackages>
+    <RestoreDuringBuild>false</RestoreDuringBuild>
+    <ExcludeRestorePackageImports>true</ExcludeRestorePackageImports>
+    <ImportNuGetBuildTargets>false</ImportNuGetBuildTargets>
+  </PropertyGroup>
+
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
+    <DebugSymbols>false</DebugSymbols>
+    <DebugType>none</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>..\..\v1.4\Assemblies\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
@@ -31,47 +57,84 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+
+  <!-- ✅ UPDATED REFERENCES (Mac Managed + workshop) -->
   <ItemGroup>
-    <Reference Include="0Harmony">
-      <HintPath>..\..\..\..\..\..\workshop\content\294100\2009463077\Current\Assemblies\0Harmony.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="AbilityUser">
-      <HintPath>..\..\..\..\..\..\workshop\content\294100\932008009\1.4\Assemblies\AbilityUser.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="AbilityUserAI">
-      <HintPath>..\..\..\..\..\..\workshop\content\294100\932008009\1.4\Assemblies\AbilityUserAI.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="AlienRace">
-      <HintPath>..\..\..\..\..\..\workshop\content\294100\839005762\1.4\Assemblies\AlienRace.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
+    <!-- Game + Unity (from the Mac app bundle) -->
     <Reference Include="Assembly-CSharp">
-      <HintPath>..\..\..\..\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>$(Managed)/Assembly-CSharp.dll</HintPath>
+      <Private>false</Private>
     </Reference>
-    <Reference Include="CompDeflector">
-      <HintPath>..\..\..\..\..\..\workshop\content\294100\932008009\1.3\Assemblies\CompDeflector.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="UnityEngine">
+      <HintPath>$(Managed)/UnityEngine.dll</HintPath>
+      <Private>false</Private>
     </Reference>
-    <Reference Include="GiddyUpCore">
-      <HintPath>..\..\..\..\..\..\workshop\content\294100\1216999901\1.3\Assemblies\GiddyUpCore.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>$(Managed)/UnityEngine.CoreModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.IMGUIModule">
+      <HintPath>$(Managed)/UnityEngine.IMGUIModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.InputLegacyModule">
+      <HintPath>$(Managed)/UnityEngine.InputLegacyModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.TextRenderingModule">
+      <HintPath>$(Managed)/UnityEngine.TextRenderingModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>$(Managed)/UnityEngine.UI.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+
+    <!-- Harmony -->
+    <Reference Include="0Harmony">
+      <HintPath>$(WorkshopRoot)/2009463077/Current/Assemblies/0Harmony.dll</HintPath>
+      <Private>false</Private>
     </Reference>
     <Reference Include="HarmonyMod">
-      <HintPath>..\..\..\..\..\..\workshop\content\294100\2009463077\Current\Assemblies\HarmonyMod.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>$(WorkshopRoot)/2009463077/Current/Assemblies/HarmonyMod.dll</HintPath>
+      <Private>false</Private>
     </Reference>
+
+    <!-- HugsLib -->
     <Reference Include="HugsLib">
-      <HintPath>..\..\..\..\..\..\workshop\content\294100\818773962\v1.4\Assemblies\HugsLib.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>$(WorkshopRoot)/818773962/Assemblies/HugsLib.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+
+    <!-- AbilityUser family (adjust if your workshop IDs/paths differ) -->
+    <Reference Include="AbilityUser">
+      <HintPath>$(WorkshopRoot)/3312959701/1.4/Assemblies/AbilityUser.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="AbilityUserAI">
+      <HintPath>$(WorkshopRoot)/3312959701/1.4/Assemblies/AbilityUserAI.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="CompDeflector">
+      <HintPath>$(WorkshopRoot)/3312959701/1.4/Assemblies/CompDeflector.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+
+    <!-- Other mod deps you already had (fix their paths to Mac workshop) -->
+    <Reference Include="AlienRace">
+      <HintPath>$(WorkshopRoot)/839005762/1.4/Assemblies/AlienRace.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="GiddyUpCore">
+      <HintPath>$(WorkshopRoot)/1216999901/1.3/Assemblies/GiddyUpCore.dll</HintPath>
+      <Private>false</Private>
     </Reference>
     <Reference Include="SimpleSidearms">
-      <HintPath>..\..\..\..\..\..\workshop\content\294100\927155256\v1.4\Assemblies\SimpleSidearms.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>$(WorkshopRoot)/927155256/v1.4/Assemblies/SimpleSidearms.dll</HintPath>
+      <Private>false</Private>
     </Reference>
+
+    <!-- BCL -->
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -80,35 +143,15 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="UnityEngine">
-      <HintPath>..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.CoreModule">
-      <HintPath>..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.IMGUIModule">
-      <HintPath>..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.IMGUIModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.InputLegacyModule">
-      <HintPath>..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.InputLegacyModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.TextRenderingModule">
-      <HintPath>..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>..\..\..\..\..\Valheim\unstripped_corlib\UnityEngine.UI.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
   </ItemGroup>
+
   <ItemGroup>
     <Compile Include="AbilityDecisionConditionalNode_EnemyTargetIsBuilding.cs" />
     <Compile Include="AbilityWorker_TargetCorpse.cs" />
+    <Compile Include="Area_TMRegrowth.cs" />
+    <Compile Include="Area_TMTransmutate.cs" />
     <Compile Include="AutoCast\Scripts.cs" />
+    <Compile Include="BookOutcomeProperties_GainMightExp.cs" />
     <Compile Include="Building_60mmMortar.cs" />
     <Compile Include="Building_ExplosiveProximityTrap.cs" />
     <Compile Include="Building_LightningTrap.cs" />
@@ -133,12 +176,24 @@
     <Compile Include="Building_TMTotem_Healing.cs" />
     <Compile Include="Building_TMTotem_Lightning.cs" />
     <Compile Include="Building_TM_DMP.cs" />
+    <Compile Include="Area_TMSprite.cs" />
+    <Compile Include="FloatMenuOptionProvider_ArcaneForge.cs" />
+    <Compile Include="ReadingOutcomeDoerGainMightExp.cs" />
+    <Compile Include="ReadingOutcomeDoerGainMagicExp.cs" />
+    <Compile Include="BookOutcomeProperties_GainMagicExp.cs" />
+    <Compile Include="HediffComp_ManaShield.cs" />
+    <Compile Include="TM_DamageWorker_None.cs" />
     <Compile Include="Enchantment\HediffComp_ShroudOfUndeath.cs" />
     <Compile Include="Golems\Building_TMGolemStraw.cs" />
     <Compile Include="Golems\GolemWorkstationEffect_ScarecrowGrow.cs" />
     <Compile Include="Golems\JobGiver_Work.cs" />
     <Compile Include="JobGiver_AIClearSnow.cs" />
     <Compile Include="JobGiver_AIClearPollution.cs" />
+    <Compile Include="ModOptions\ChangeCloakDepthNorthWindow.cs" />
+    <Compile Include="ModOptions\ChangeCloakDepthWindow.cs" />
+    <Compile Include="ModOptions\DisplayOptionsWindow.cs" />
+    <Compile Include="ModOptions\ChangeOffsetWindow.cs" />
+    <Compile Include="ThinkNode_ConditionalGolem.cs" />
     <Compile Include="Utils\TM_PawnTracker.cs" />
     <Compile Include="Verb_ShootTLine_Properties.cs" />
     <Compile Include="Verb_ShootDifferentProjectiles_Properties.cs" />
