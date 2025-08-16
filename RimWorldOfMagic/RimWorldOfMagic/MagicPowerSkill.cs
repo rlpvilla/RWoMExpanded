@@ -32,18 +32,48 @@ namespace TorannMagic
             {
                 this.levelMax = 6;
             }
-            else if (newLabel == "TM_global_regen_pwr" || newLabel == "TM_global_eff_pwr" || newLabel == "TM_EarthSprites_pwr" || newLabel == "TM_Prediction_pwr" || newLabel == "TM_GuardianSpirit_pwr" ||
+            else if (newLabel == "TM_EarthSprites_pwr" || newLabel == "TM_Prediction_pwr" || newLabel == "TM_GuardianSpirit_pwr" ||
                 newLabel == "TM_Golemancy_pwr" || newLabel == "TM_Golemancy_eff" || newLabel == "TM_Golemancy_ver")
             {
                 this.levelMax = 5;
+            }
+            // Necromancer skill level caps
+            else if (newLabel == "TM_RaiseUndead_eff")
+            {
+                this.levelMax = 10;
+            }
+            else if (newLabel == "TM_RaiseUndead_pwr" || newLabel == "TM_RaiseUndead_ver")
+            {
+                this.levelMax = 6;
+            }
+            else if (newLabel == "TM_DeathMark_pwr" || newLabel == "TM_DeathMark_eff" || newLabel == "TM_DeathMark_ver")
+            {
+                this.levelMax = 4;
+            }
+            else if (newLabel == "TM_FogOfTorment_pwr" || newLabel == "TM_FogOfTorment_eff" || newLabel == "TM_FogOfTorment_ver")
+            {
+                this.levelMax = 4;
+            }
+            else if (newLabel == "TM_ConsumeCorpse_pwr" || newLabel == "TM_ConsumeCorpse_eff" || newLabel == "TM_ConsumeCorpse_ver")
+            {
+                this.levelMax = 5;
+            }
+            // Death Bolt skill level caps (Lich ability)
+            else if (newLabel == "TM_DeathBolt_pwr" || newLabel == "TM_DeathBolt_eff")
+            {
+                this.levelMax = 4;
             }
             else if (newLabel == "TM_Blink_eff" || newLabel == "TM_Summon_eff" || newLabel == "TM_AdvancedHeal_pwr" || newLabel == "TM_AdvancedHeal_ver" || newLabel == "TM_HealingCircle_pwr")
             {
                 this.levelMax = 4;
             }
+            if (newLabel == "TM_global_regen_pwr" || newLabel == "TM_global_eff_pwr")
+            {
+                this.levelMax = 10;
+            }
             else if (newLabel == "TM_global_spirit_pwr")
             {
-                this.levelMax = 50;
+                this.levelMax = 500;
             }
             else if (newLabel == "TM_TechnoBit_pwr" || newLabel == "TM_TechnoBit_ver" || newLabel == "TM_TechnoBit_eff" || newLabel == "TM_TechnoTurret_pwr" || newLabel == "TM_TechnoTurret_ver" || newLabel == "TM_TechnoTurret_eff" || newLabel == "TM_TechnoWeapon_pwr" || newLabel == "TM_TechnoWeapon_ver" || newLabel == "TM_TechnoWeapon_eff" ||
                  newLabel == "TM_Cantrips_pwr" || newLabel == "TM_Cantrips_eff" || newLabel == "TM_Cantrips_ver" || newLabel == "TM_Totems_pwr" || newLabel == "TM_Totems_eff" || newLabel == "TM_Totems_ver" ||
